@@ -1,5 +1,5 @@
 // Varsayılan kategori tanımlamaları
-// nameKey is used for translation lookup
+// nameKey çeviri araması (translation lookup) için kullanılır
 export const DEFAULT_CATEGORIES = [
   { id: 'yemek', name: 'Yemek', nameKey: 'food', icon: 'restaurant', iconLib: 'MaterialIcons', color: '#EF4444', isCustom: false },
   { id: 'ulasim', name: 'Ulaşım', nameKey: 'transport', icon: 'directions-car', iconLib: 'MaterialIcons', color: '#3B82F6', isCustom: false },

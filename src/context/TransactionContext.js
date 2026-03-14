@@ -26,19 +26,19 @@ export const TransactionProvider = ({ children }) => {
       if (saved) {
         const savedCategories = JSON.parse(saved);
 
-        // Migration: Update old categories with new name and nameKey fields
+        // Geçiş: Eski kategorileri yeni 'name' ve 'nameKey' alanlarıyla güncelle
         const updatedCategories = savedCategories.map(cat => {
-          // Find matching default category
+          // Eşleşen varsayılan kategoriyi bul
           const defaultCat = DEFAULT_CATEGORIES.find(dc => dc.id === cat.id);
           if (defaultCat && !cat.nameKey) {
-            // Merge with default category to get name and nameKey
+            // İsim ve nameKey almak için varsayılan kategoriyle birleştir
             return { ...cat, name: defaultCat.name, nameKey: defaultCat.nameKey };
           }
           return cat;
         });
 
         setCategories(updatedCategories);
-        // Save updated categories back to storage
+        // Güncellenmiş kategorileri tekrar depolama alanına kaydet
         await AsyncStorage.setItem('@harcatakip_categories', JSON.stringify(updatedCategories));
       }
     } catch (error) {
